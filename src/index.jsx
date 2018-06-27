@@ -9,6 +9,9 @@ import Stage3 from './components/Stage3';
 import FeedBack from './views/people-feed-back/index';
 import GovernBack from './views/govern-feed-back/index';
 import MediationTeam from './views/mediation-team/index';
+import Appointment from './views/appointment/index';
+import Helper from './views/helper/index'
+import Guardians from './views/guardians/index'
 
 import './index.less';
 
@@ -34,7 +37,10 @@ ReactDOM.render(
           <Route path="people-feed-back" component={FeedBack} />
           <Route path="govern-feed-back" component={GovernBack} />
           <Route path="mediation-team" component={MediationTeam} />
-          <Route path="s3" component={Stage3} />
+          <Route path="appointment" component={Appointment} />
+          <Route path="helper" component={Helper} />
+          <Route path="guardians" component={Guardians} />
+
       </Route>
   </Router>
 , document.getElementById('example'));

@@ -1,19 +1,16 @@
-/**
- * Created by pdd on 2018/6/22.
- */
-
 import React from 'react';
 import Form from '../../components/form';
-import bannerImage from '../../assets/images/govern.jpg';
+import bannerImage from '../../assets/images/people_login.jpg';
 
-export default class GovernFeedBack extends React.Component {
+
+export default class Appointment extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            sex: true,
-            id: '1',
+            sex: false,
+            id: '3',
             image: bannerImage,
-            title: '政务反馈'
+            title: '预约办事'
         }
     }
     render () {

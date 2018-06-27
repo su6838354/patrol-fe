@@ -1,19 +1,14 @@
-/**
- * Created by pdd on 2018/6/24.
- */
-
 import React from 'react';
 import PeopleList from '../../components/peopleList'
 
-
-export default class MediationTeam extends React.Component {
+export default class Guardians extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            department: false,
+            department: true,
             id: '1',
-            title: '人民调解队伍',
-            role: '调解员'
+            title: '重点部位守护',
+            role: '负责人'
         }
     }
     render () {

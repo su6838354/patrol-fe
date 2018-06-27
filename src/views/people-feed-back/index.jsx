@@ -1,58 +1,27 @@
-/**
- * Created by pdd on 2018/6/22.
- */
-
 import React from 'react';
-import { Button } from 'antd-mobile';
-import './index.less';
+import Form from '../../components/form';
+import bannerImage from '../../assets/images/people_login.jpg';
+
 
 export default class PeopleFeedBack extends React.Component {
-
-    state = {
-        selectedFile: null
+    constructor(props) {
+        super(props);
+        this.state = {
+            sex: false,
+            id: '2',
+            image: bannerImage,
+            title: '民情反馈'
+        }
     }
-
-    componentDidMount() {
-        this.props.changeTitle('民情反馈');
-    }
-
-    fileChangedHandler = (event) => {
-        this.setState({selectedFile: event.target.files[0]})
-    }
-
-    uploadHandler = () => {
-        console.log(this.state.selectedFile)
-    }
-
     render () {
-        return (
-            <div className="people-feed-back">
-                <div className="banner">
-                </div>
-                <div className="login-box center">
-                  <div className="login-item">
-                    <div className="item-label">姓名</div>
-                    <input/>
-                  </div>
-                <div className="login-item">
-                    <div className="item-label">手机</div>
-                    <input/>
-                </div>
-
-                <div className="login-item">
-                    <div className="item-label">反馈内容描述</div>
-                    <textarea  rows="5" />
-                </div>
-                    <div className="login-item">
-                        <div className="item-label">上传照片</div>
-                        <div className="upload"></div>
-                        <input className="upload-input" type="file" onChange={this.fileChangedHandler}/>
-                        <span>上传文件（需小于10M）</span>
-                    <button className="submit" onClick={this.uploadHandler}>提交</button>
-                    </div>
-               </div>
-
-               </div>
+        return(
+            <div>
+                <Form
+                    sexShow = {this.state.sex}
+                    feedId = {this.state.id}
+                    imageUrl = {this.state.image}
+                />
+            </div>
         )
     }
 }
