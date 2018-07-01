@@ -12,6 +12,12 @@ import MediationTeam from './views/mediation-team/index';
 import Appointment from './views/appointment/index';
 import Helper from './views/helper/index'
 import Guardians from './views/guardians/index'
+import GuardiansDetail from './views/guardians/detail'
+import HelperDetail from './views/helper/detail'
+import MediationDetail from './views/mediation-team/detail'
+import OrderList from './views/order/orderList'
+import OrderDetail from './views/order/orderDetail'
+
 
 import './index.less';
 
@@ -36,11 +42,15 @@ ReactDOM.render(
           <IndexRoute component={Index} />
           <Route path="people-feed-back" component={FeedBack} />
           <Route path="govern-feed-back" component={GovernBack} />
-          <Route path="mediation-team" component={MediationTeam} />
           <Route path="appointment" component={Appointment} />
+          <Route path="mediation-team" component={MediationTeam} />
+          <Route path="mediation-detail" component={MediationDetail} />
           <Route path="helper" component={Helper} />
+          <Route path="helper-detail" component={HelperDetail} />
           <Route path="guardians" component={Guardians} />
-
+          <Route path="guardians-detail" component={GuardiansDetail} />
+          <Route path="order-list" component={OrderList} />
+          <Route path="order-detail" component={OrderDetail} />
       </Route>
   </Router>
 , document.getElementById('example'));

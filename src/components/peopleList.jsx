@@ -1,4 +1,3 @@
-
 import React from 'react';
 import '../assets/css/peopleList.less';
 import people from '../assets/images/sum.png'
