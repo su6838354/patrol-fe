@@ -10,7 +10,8 @@ export default class PeopleFeedBack extends React.Component {
             sex: false,
             id: '2',
             image: bannerImage,
-            title: '民情反馈'
+            title: '民情反馈',
+            type: 'people',
         }
     }
     render () {
@@ -20,6 +21,7 @@ export default class PeopleFeedBack extends React.Component {
                     sexShow = {this.state.sex}
                     feedId = {this.state.id}
                     imageUrl = {this.state.image}
+                    {...this.state}
                 />
             </div>
         )

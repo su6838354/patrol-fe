@@ -10,7 +10,7 @@ export default class leading extends React.Component {
             id: '1',
             title: '重点部位守护',
             role: '负责人'
-        }
+        };
     }
     render () {
         return(

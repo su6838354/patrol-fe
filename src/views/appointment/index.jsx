@@ -1,6 +1,6 @@
 import React from 'react';
 import Form from '../../components/form';
-import bannerImage from '../../assets/images/people_login.jpg';
+import bannerImage from '../../assets/images/appoint.png';
 
 
 export default class Appointment extends React.Component {
@@ -10,7 +10,8 @@ export default class Appointment extends React.Component {
             sex: false,
             id: '3',
             image: bannerImage,
-            title: '预约办事'
+            title: '预约办事',
+            type: 'yuyue'
         }
     }
     render () {
@@ -20,6 +21,7 @@ export default class Appointment extends React.Component {
                     sexShow = {this.state.sex}
                     feedId = {this.state.id}
                     imageUrl = {this.state.image}
+                    {...this.state}
                 />
             </div>
         )

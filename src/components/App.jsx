@@ -20,10 +20,19 @@ export default class App extends React.Component {
     };
   }
 
+    getChildContext() {
+        return {
+            changeTitle: (title) => {
+                this.setState({ title });
+                document.title = title;
+            }
+        };
+    }
+
   componentDidMount() {
-      request.post('/patrol/send_sms', {
-          mobile: 13636672480
-      }).then(rep => console.log(rep))
+      // request.post('/patrol/send_sms', {
+      //     mobile: 13636672480
+      // }).then(rep => console.log(rep))
   }
 
   render() {
@@ -56,3 +65,7 @@ export default class App extends React.Component {
     );
   }
 }
+
+App.childContextTypes = {
+    changeTitle: React.PropTypes.func
+};

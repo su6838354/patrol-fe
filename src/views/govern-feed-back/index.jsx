@@ -10,10 +10,11 @@ export default class GovernFeedBack extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
+            type: 'govern',
             sex: true,
             id: '1',
             image: bannerImage,
-            title: '政务反馈'
+            title: '政务反馈',
         }
     }
     render () {
@@ -23,6 +24,7 @@ export default class GovernFeedBack extends React.Component {
                     sexShow = {this.state.sex}
                     feedId = {this.state.id}
                     imageUrl = {this.state.image}
+                    {...this.state}
                 />
             </div>
         )
