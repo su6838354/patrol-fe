@@ -11,7 +11,7 @@ export function upload(file, cb) {
     const bucket = new upyun.Bucket('sy-image-upyun');
     function getHeaderSign(bucket, method) {
         const params = 'bucket=' + bucket.bucketName + '&method=' + method + '&path=' + path;
-        return fetch('http://localhost:7001/patrol/image/sign/head?' + params)
+        return fetch('http://security.weichongming.com/patrol/image/sign/head?' + params)
             .then(function(response) {
                 if (response.status !== 200) {
                     console.error('gen header sign faild!');
