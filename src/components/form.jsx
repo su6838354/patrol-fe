@@ -7,6 +7,7 @@ import '../assets/css/form.less';
 import request from '../tools/request';
 import { Toast } from 'antd-mobile';
 import { isPoneAvailable, isNull } from '../tools/util'
+import { upload } from '../tools/image';
 
 
 
@@ -97,7 +98,20 @@ export default class Form extends React.Component {
                             this.file.click()
                         }}>
                             <div className="upload"/>
-                            <input id="add-file" ref={(file) => this.file = file } className="upload-input" type="file" />
+                            <input id="add-file" onChange={(e) => {
+                                const file = e.target.files[0];
+                                Toast.info('图片上传中...', 100000);
+                                upload(file, ({code, data}) => {
+                                    if (code === 0)  {
+                                        this.setState({
+                                            image_url: data
+                                        });
+                                        Toast.success('图片上传成功', 1);
+                                    } else {
+                                        Toast.fail('图片上传失败')
+                                    }
+                                })
+                            }} ref={(file) => this.file = file } className="upload-input" type="file" />
 
                             <span>上传文件（需小于10M）</span>
 

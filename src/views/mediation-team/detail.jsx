@@ -9,9 +9,14 @@ export default class mediationDetail extends React.Component {
             department: false,
             id: '1',
             title: '人民调解队伍',
-            role: '调解员'
+            role: '调解员',
+            period: false,
+            area: true,
+            good: true,
+            case: true,
         }
     }
+
     render () {
         return(
                 <PeopleDetail
@@ -19,6 +24,8 @@ export default class mediationDetail extends React.Component {
                     feedId = {this.state.id}
                     title = {this.state.title}
                     role = {this.state.role}
+                    {...this.state}
+                    {...this.props}
                 />
         )
     }

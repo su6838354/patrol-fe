@@ -11,7 +11,8 @@ import Cookies from 'js-cookie'
 
 // 创建axios实例
 const service = axios.create({
-    baseURL: 'http://127.0.0.1:7001', // api的base_url
+    // baseURL: 'http://172.16.30.164:7001', // api的base_url
+    baseURL: 'http://security.weichongming.com', // api的base_url
     timeout: 10000 // 请求超时时间
 });
 

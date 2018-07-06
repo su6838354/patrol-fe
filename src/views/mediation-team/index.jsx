@@ -13,7 +13,9 @@ export default class MediationTeam extends React.Component {
             department: false,
             id: '1',
             title: '人民调解队伍',
-            role: '调解员'
+            role: '调解员',
+            type: 'mediation',
+            detailPath: '/mediation-detail',
         }
     }
     render () {
@@ -24,6 +26,7 @@ export default class MediationTeam extends React.Component {
                     feedId = {this.state.id}
                     title = {this.state.title}
                     role = {this.state.role}
+                    {...this.state}
                 />
             </div>
         )

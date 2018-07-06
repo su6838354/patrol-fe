@@ -44,7 +44,7 @@ ReactDOM.render(
           <Route path="govern-feed-back" component={GovernBack} />
           <Route path="appointment" component={Appointment} />
           <Route path="mediation-team" component={MediationTeam} />
-          <Route path="mediation-detail" component={MediationDetail} />
+          <Route path="mediation-detail/:id" component={MediationDetail} />
           <Route path="helper" component={Helper} />
           <Route path="helper-detail" component={HelperDetail} />
           <Route path="guardians" component={Guardians} />
