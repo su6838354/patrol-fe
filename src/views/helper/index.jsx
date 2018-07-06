@@ -8,7 +8,9 @@ export default class Helper extends React.Component {
             department: false,
             id: '1',
             title: '重点人员管控',
-            role: '帮教人员'
+            role: '帮教人员',
+            type: 'help',
+            detailPath: 'helper-detail'
         }
     }
     render () {
@@ -19,6 +21,7 @@ export default class Helper extends React.Component {
                     feedId = {this.state.id}
                     title = {this.state.title}
                     role = {this.state.role}
+                    {...this.state}
                 />
             </div>
         )

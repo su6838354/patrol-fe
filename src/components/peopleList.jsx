@@ -33,11 +33,6 @@ export default class PeopleList extends React.Component {
         });
     }
 
-    peopleItem() {
-        return (
-            <div className="item-center-script"><span>守护部位：</span><a>部位一</a></div>
-        )
-    }
     render () {
         return (
             <div className="people-list">
@@ -51,7 +46,11 @@ export default class PeopleList extends React.Component {
                                     <span>{this.props.role}：{item.name}</span>
                                 </div>
                                 <div className="team-item-center team-center">
-                                    <div>{this.props.departmentShow && this.peopleItem()}</div>
+                                    {
+                                        this.props.watch && (
+                                            <div className="item-center-script"><span>守护部位：</span><a>{this.state.data.watch}</a></div>
+                                        )
+                                    }
                                     <div className="item-center-script"><span>性别：</span><a>{item.sex === 1? '男':'女'}</a></div>
                                     <div className="item-center-script"><span>管辖区域：</span><a>{item.area}</a></div>
                                 </div>

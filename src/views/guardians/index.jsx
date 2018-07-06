@@ -5,20 +5,22 @@ export default class Guardians extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            department: true,
+            watch: true,
             id: '1',
             title: '重点部位守护',
-            role: '负责人'
+            role: '负责人',
+            type: 'guard',
+            detailPath: 'guardians-detail',
         }
     }
     render () {
         return(
             <div>
                 <PeopleList
-                    departmentShow = {this.state.department}
                     feedId = {this.state.id}
                     title = {this.state.title}
                     role = {this.state.role}
+                    {...this.state}
                 />
             </div>
         )

@@ -46,11 +46,11 @@ ReactDOM.render(
           <Route path="mediation-team" component={MediationTeam} />
           <Route path="mediation-detail/:id" component={MediationDetail} />
           <Route path="helper" component={Helper} />
-          <Route path="helper-detail" component={HelperDetail} />
+          <Route path="helper-detail/:id" component={HelperDetail} />
           <Route path="guardians" component={Guardians} />
-          <Route path="guardians-detail" component={GuardiansDetail} />
+          <Route path="guardians-detail/:id" component={GuardiansDetail} />
           <Route path="order-list" component={OrderList} />
-          <Route path="order-detail" component={OrderDetail} />
+          <Route path="order-detail/:id" component={OrderDetail} />
       </Route>
   </Router>
 , document.getElementById('example'));

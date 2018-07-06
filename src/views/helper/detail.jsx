@@ -9,7 +9,9 @@ export default class helperDetail extends React.Component {
             department: false,
             id: '1',
             title: '重点部位守护',
-            role: '帮教人员'
+            role: '帮教人员',
+            area: true,
+            good: true
         }
     }
     render () {
@@ -19,6 +21,8 @@ export default class helperDetail extends React.Component {
                     feedId = {this.state.id}
                     title = {this.state.title}
                     role = {this.state.role}
+                    {...this.props}
+                    {...this.state}
                 />
         )
     }

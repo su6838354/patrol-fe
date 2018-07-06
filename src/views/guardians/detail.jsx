@@ -9,7 +9,11 @@ export default class leading extends React.Component {
             department: true,
             id: '1',
             title: '重点部位守护',
-            role: '负责人'
+            role: '负责人',
+            watch: true,
+            period: true,
+            path: true,
+
         };
     }
     render () {
@@ -19,6 +23,8 @@ export default class leading extends React.Component {
                     feedId = {this.state.id}
                     title = {this.state.title}
                     role = {this.state.role}
+                    {...this.state}
+                    {...this.props}
                 />
         )
     }
