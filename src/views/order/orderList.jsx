@@ -51,7 +51,10 @@ export default class orderList extends React.Component {
                                             <br/>
                                             <span className="gray">线上接单：{item.info_count}</span>
                                         </div>
-                                        <div className="top-button">预约</div>
+                                        <div className="top-button" onClick={() => {
+                                            sessionStorage.setItem('police_id', item.id);
+                                            hashHistory.push('appointment')
+                                        }}>预约</div>
                                     </div>
                                     <div className="team-item-center team-center">
                                         <div className="item-center-script"><span>黄警官简介：</span></div>

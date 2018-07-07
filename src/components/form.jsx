@@ -54,8 +54,11 @@ export default class Form extends React.Component {
             sex: this.form.sex.value,
             mobile,
             content,
-            image_url: this.state.image_url
+            image_url: this.state.image_url,
         };
+        if (this.props.type === 'yuyue') {
+            params.police_id = sessionStorage.getItem('police_id');
+        }
         this.setState({
             params
         });

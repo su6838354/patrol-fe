@@ -3,6 +3,7 @@ import '../../assets/css/order.less';
 import banner from '../../assets/images/police-detail.jpg'
 import { Toast } from 'antd-mobile';
 import request from '../../tools/request';
+import { hashHistory } from 'react-router';
 
 export default class orderList extends React.Component {
     constructor(props) {
@@ -38,7 +39,10 @@ export default class orderList extends React.Component {
                 <div className="police">
                     <span> {this.state.data.name}</span>
                     <a>线上接单：{this.state.data.info_count}</a>
-                    <div className="top-button">预约</div>
+                    <div className="top-button" onClick={() => {
+                        sessionStorage.setItem('police_id', this.state.data.id);
+                        hashHistory.push('appointment')
+                    }}>预约</div>
                 </div>
                 <div className="police-content">
                     <span>黄警官介绍:</span>
