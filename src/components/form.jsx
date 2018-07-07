@@ -5,10 +5,11 @@
 import React from 'react';
 import '../assets/css/form.less';
 import request from '../tools/request';
-import { Toast } from 'antd-mobile';
+import { Toast, Icon } from 'antd-mobile';
 import { isPoneAvailable, isNull } from '../tools/util'
 import { upload } from '../tools/image';
-
+import Info from '../components/info';
+import { hashHistory } from 'react-router';
 
 
 
@@ -17,7 +18,11 @@ export default class Form extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            image_url: 'https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=2498039726,598644916&fm=173&app=25&f=JPEG?w=218&h=146&s=1C904F9206316F941AB6FCE30300F009'
+            image_url: null,
+            params: {"type":"people","name":"111","sex":"1","mobile":"13636672480","content":"111","image_url":'https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=2498039726,598644916&fm=173&app=25&f=JPEG?w=218&h=146&s=1C904F9206316F941AB6FCE30300F009'},
+            success: {
+                code: -1
+            }
         }
     }
 
@@ -43,17 +48,23 @@ export default class Form extends React.Component {
             Toast.info('反馈内容描述不能为空', 1)
             return;
         }
-        request.post('patrol/info/add', {
+        const params = {
             type: this.props.type,
             name,
             sex: this.form.sex.value,
             mobile,
             content,
             image_url: this.state.image_url
-        }).then(({ data }) => {
+        };
+        this.setState({
+            params
+        });
+        request.post('patrol/info/add', params).then(({ data }) => {
             if (data.code === 0) {
                 Toast.success('提交成功', 2, () => {
-
+                    this.setState({
+                        success: data
+                    })
                 });
             }
         }).catch((err) => {
@@ -70,7 +81,30 @@ export default class Form extends React.Component {
             </div>
         )
     }
+
+    renderSuccess = () => {
+        return (
+            <div className="order-success-page">
+                <div className={'log'}>
+                    <Icon type="check-circle-o" size={'5rem'} color={"#067cdd"} />
+                </div>
+                <div className="success-title">提交成功</div>
+                <Info {...this.state.params} sexShow={this.props.sexShow} />
+                <div className="success-go-btn" onClick={() => {
+                    this.setState({
+                        success: {},
+                        image_url: null
+                    })
+                }}> 返回 </div>
+            </div>
+        )
+    }
+
     render () {
+        if (this.state.success.code === 0) {
+            return this.renderSuccess()
+        }
+
         return (
             <form className="form" ref={form => this.form = form}>
                 <div className="banner">
@@ -85,7 +119,7 @@ export default class Form extends React.Component {
 
                     <div className="login-item">
                         <div className="item-label">手机</div>
-                        <input name="mobile" />
+                        <input type={'tel'} name="mobile" />
                     </div>
 
                     <div className="login-item">
@@ -93,27 +127,35 @@ export default class Form extends React.Component {
                         <textarea name="content"  rows="5" />
                     </div>
                     <div className="login-item">
-                        <div className="item-label">上传照片</div>
-                        <div onClick={(e) => {
-                            this.file.click()
-                        }}>
-                            <div className="upload"/>
-                            <input id="add-file" onChange={(e) => {
-                                const file = e.target.files[0];
-                                Toast.info('图片上传中...', 100000);
-                                upload(file, ({code, data}) => {
-                                    if (code === 0)  {
-                                        this.setState({
-                                            image_url: data
-                                        });
-                                        Toast.success('图片上传成功', 1);
-                                    } else {
-                                        Toast.fail('图片上传失败')
-                                    }
-                                })
-                            }} ref={(file) => this.file = file } className="upload-input" type="file" />
+                        <div className={'op'}>
+                            <div>
+                                <div className="item-label">上传照片</div>
+                                <div onClick={(e) => {
+                                    this.file.click()
+                                }}>
+                                    <div className="upload"/>
+                                    <input id="add-file" onChange={(e) => {
+                                        const file = e.target.files[0];
+                                        Toast.info('图片上传中...', 100000);
+                                        upload(file, ({code, data}) => {
+                                            if (code === 0)  {
+                                                this.setState({
+                                                    image_url: data
+                                                });
+                                                Toast.success('图片上传成功', 1);
+                                            } else {
+                                                Toast.fail('图片上传失败')
+                                            }
+                                        })
+                                    }} ref={(file) => this.file = file } className="upload-input" type="file" />
 
-                            <span>上传文件（需小于10M）</span>
+                                    <span>上传文件（需小于10M）</span>
+                                </div>
+                            </div>
+
+                            {
+                                (this.state.image_url) && <img className="preview" src={this.state.image_url} />
+                            }
 
                         </div>
 
