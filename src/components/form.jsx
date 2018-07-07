@@ -92,7 +92,7 @@ export default class Form extends React.Component {
                     <Icon type="check-circle-o" size={'5rem'} color={"#067cdd"} />
                 </div>
                 <div className="success-title">提交成功</div>
-                <Info {...this.state.params} sexShow={this.props.sexShow} />
+                <Info {...this.state.params} sexShow={this.props.sexShow} id={this.state.success.data.insertId} />
                 <div className="success-go-btn" onClick={() => {
                     this.setState({
                         success: {},
