@@ -17,6 +17,7 @@ import HelperDetail from './views/helper/detail'
 import MediationDetail from './views/mediation-team/detail'
 import OrderList from './views/order/orderList'
 import OrderDetail from './views/order/orderDetail'
+import Chat from './views/chat';
 
 
 import './index.less';
@@ -51,6 +52,7 @@ ReactDOM.render(
           <Route path="guardians-detail/:id" component={GuardiansDetail} />
           <Route path="order-list" component={OrderList} />
           <Route path="order-detail/:id" component={OrderDetail} />
+          <Route path="chat" component={Chat} />
       </Route>
   </Router>
 , document.getElementById('example'));
