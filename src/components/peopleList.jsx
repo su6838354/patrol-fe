@@ -1,6 +1,7 @@
 import React from 'react';
 import '../assets/css/peopleList.less';
 import people from '../assets/images/sum.png'
+import more from '../assets/images/more.png'
 import { Toast } from 'antd-mobile';
 import request from '../tools/request';
 import { hashHistory } from 'react-router';
@@ -13,6 +14,7 @@ export default class PeopleList extends React.Component {
             data: [],
             limit: 10,
             offset: 0,
+            more:more,
         };
     }
 
@@ -58,7 +60,7 @@ export default class PeopleList extends React.Component {
                                     hashHistory.push(this.props.detailPath + '/' + item.id)
                                 }}>
                                     <span>查看更多……</span>
-                                    <a>></a>
+                                    <a><img src={this.state.more}/></a>
                                 </div>
                             </div>
                             )

@@ -1,6 +1,7 @@
 import React from 'react';
 import '../../assets/css/order.less';
 import people from '../../assets/images/sum.png'
+import more from '../../assets/images/more.png'
 import { Toast } from 'antd-mobile';
 import request from '../../tools/request';
 import { hashHistory } from 'react-router';
@@ -11,6 +12,7 @@ export default class orderList extends React.Component {
         super(props);
         this.state = {
             headImg: people,
+            more:more,
             detailPath: 'order-detail',
             type: 'police',
             data: [],
@@ -57,14 +59,14 @@ export default class orderList extends React.Component {
                                         }}>预约</div>
                                     </div>
                                     <div className="team-item-center team-center">
-                                        <div className="item-center-script"><span>黄警官简介：</span></div>
-                                        <div className="item-center-script"><span>{item.detail}</span></div>
+                                        <div className="item-center-script"><p>黄警官简介：</p></div>
+                                        <div className="item-center-script"><p>{item.detail}</p></div>
                                     </div>
                                     <div className="team-item-more team-center" onClick={() => {
                                         hashHistory.push(this.state.detailPath + '/' + item.id)
                                     }}>
                                         <span>查看更多……</span>
-                                        <a>></a>
+                                        <a><img src={this.state.more}/></a>
                                     </div>
                                 </div>
                             )
