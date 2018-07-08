@@ -110,19 +110,19 @@ export default class Form extends React.Component {
 
         return (
             <form className="form" ref={form => this.form = form}>
-                <div className="banner">
-                   <img src={this.props.imageUrl}/>
+                <div className="banner icon" style={{backgroundImage:`url(${this.props.imageUrl})`}}>
+                   {/* <img src={this.props.imageUrl}/> */}
                 </div>
                 <div className="login-box center">
                     <div className="login-item">
                         <div className="item-label">姓名</div>
-                        <input name="name" ref={(name) => this.nameRef = name} />
+                        <input name="name" ref={(name) => this.nameRef = name} maxLength={15} />
                     </div>
                     <div>{this.renderList()}</div>
 
                     <div className="login-item">
                         <div className="item-label">手机</div>
-                        <input type={'tel'} name="mobile" />
+                        <input type={'tel'} name="mobile" maxLength={11} />
                     </div>
 
                     <div className="login-item">
@@ -155,14 +155,12 @@ export default class Form extends React.Component {
                                     <span>上传文件（需小于10M）</span>
                                 </div>
                             </div>
-
                             {
                                 (this.state.image_url) && <img className="preview" src={this.state.image_url} />
                             }
-
                         </div>
 
-                        <button type="button" className="submit" onClick={this.uploadHandler}>提交</button>
+                        <button type="button" className="submit" onClick={this.uploadHandler}>提 交</button>
                     </div>
                 </div>
 
