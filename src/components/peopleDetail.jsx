@@ -39,34 +39,34 @@ export default class PeopleDetail extends React.Component {
                      <div className="team-item-center team-center">
                          {
                              this.props.watch && (
-                                 <div className="item-center-script"><span>守护部位：</span><a>{this.state.watch}</a></div>
+                                 <div className="item-center-script"><p>守护部位：{this.state.watch}</p></div>
                              )
                          }
-                         <div className="item-center-contain"><span>性别：</span><a>女</a></div>
-                         <div className="item-center-contain"><span>年龄：</span><a>56</a></div>
+                         <div className="item-center-contain"><p>性别：{this.state.sex}</p></div>
+                         <div className="item-center-contain"><p>年龄：{this.state.age}</p></div>
                          {
                              this.props.period && (
-                                 <div className="item-center-contain"><span>管辖时间：</span><a>{this.state.data.period}</a></div>
+                                 <div className="item-center-contain"><p>管辖时间：{this.state.data.period}</p></div>
                              )
                          }
                          {
                              this.props.area && (
-                                 <div className="item-center-contain"><span>管辖区域：</span><a>{this.state.data.area}</a></div>
+                                 <div className="item-center-contain"><p>管辖区域：{this.state.data.area}</p></div>
                              )
                          }
                          {
                             this.props.good && (
-                                <div className="item-center-contain"><span>擅长：</span><a>{this.state.data.good}</a></div>
+                                <div className="item-center-contain"><p>擅长：{this.state.data.good}</p></div>
                             )
                          }
                          {
                             this.props.case && (
-                                <div className="item-center-contain"><span>案件处理：</span><a>{this.state.data.case}</a></div>
+                                <div className="item-center-contain"><p>案件处理：{this.state.data.case}</p></div>
                             )
                          }
                          {
                              this.props.path && (
-                                 <div className="item-center-contain"><span>路线规划：</span><a className="">{this.state.data.path}</a></div>
+                                 <div className="item-center-contain"><p>路线规划：{this.state.data.path}</p></div>
                              )
                          }
 

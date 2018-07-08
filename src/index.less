@@ -1,3 +1,7 @@
+* {
+  margin:0;
+  padding:0;
+}
 html, body {
   height: 100%;
   font-size:100px;
@@ -8,6 +12,12 @@ html, body {
 body {
   overflow: auto!important;
   -webkit-overflow-scrolling: touch;
+}
+@media screen and (min-width: 319px) and (max-width: 374px) {
+  html,body { font-size:90px;}
+}
+@media screen and (min-width: 410px)  {
+  html,body { font-size:105px;}
 }
 #example, .container {
   height: 100%;
