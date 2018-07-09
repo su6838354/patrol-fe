@@ -67,7 +67,16 @@ export default class PeopleList extends React.Component {
                                         )
                                     }
                                     <div className="item-center-script"><span>性别：</span><a>{item.sex === 1? '男':'女'}</a></div>
-                                    <div className="item-center-script"><span>管辖区域：</span><a>{item.area}</a></div>
+                                    {
+                                        this.props.area && (
+                                            <div className="item-center-script"><span>管辖区域：</span><a>{item.area}</a></div>
+                                        )
+                                    }
+                                    {
+                                        this.props.path && (
+                                            <div className="item-center-script"><span>路径规划：</span><a>{item.path}</a></div>
+                                        )
+                                    }
                                 </div>
                                 <div className="team-item-more team-center" onClick={() => {
                                     window.sessionStorage.setItem(this.props.detailPath, document.querySelector('.am-drawer-content').scrollTop);

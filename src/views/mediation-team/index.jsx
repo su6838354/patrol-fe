@@ -16,6 +16,7 @@ export default class MediationTeam extends React.Component {
             role: '调解员',
             type: 'mediation',
             detailPath: '/mediation-detail',
+            area: true,
         }
     }
     render () {
