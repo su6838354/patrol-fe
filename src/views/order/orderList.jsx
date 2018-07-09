@@ -42,6 +42,15 @@ export default class orderList extends React.Component {
         });
     }
 
+    componentDidUpdate(_, preState) {
+        if (preState.data.length === 0 && this.state.data.length !== 0) {
+            const top = window.sessionStorage.getItem(this.state.detailPath);
+            if (top) {
+                document.querySelector('.am-drawer-content').scrollTop = parseInt(top)
+            }
+        }
+    }
+
     render() {
         return (
             <div className="order-list">
@@ -64,9 +73,10 @@ export default class orderList extends React.Component {
                                     </div>
                                     <div className="team-item-center team-center">
                                         <div className="item-center-script"><p>黄警官简介：</p></div>
-                                        <div className="item-center-script"><p>{item.detail}来我家还没满两个月，第一天来的时候那个凶，每次逗它就咬，咬手咬脚。满地咬碎的纸和划破的窗户都是它的杰作。  现在快半岁了，咬的脾气没改，每天5点多咬醒我，要出去玩，出去玩一趟之后，又回来咬我，拿个喷雾吓它，没喷它，它就一眼不满的看了我，然后又跑出去玩了。 ​​​  性子太野，不知道拿它怎么办。现在也能欺负玩具了。😂 😂 😂   明明看上去很可爱，性格却很狂躁，吃不消了。  (￣ω￣(￣ω￣〃)ゝ    </p></div>
+                                        <div className="item-center-script"><p>{item.detail}</p></div>
                                     </div>
                                     <div className="team-item-more team-center" onClick={() => {
+                                        window.sessionStorage.setItem(this.state.detailPath, document.querySelector('.am-drawer-content').scrollTop);
                                         hashHistory.push(this.state.detailPath + '/' + item.id)
                                     }}>
                                         <span>查看更多…</span>

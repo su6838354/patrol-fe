@@ -39,6 +39,15 @@ export default class PeopleList extends React.Component {
         });
     }
 
+    componentDidUpdate(_, preState) {
+        if (preState.data.length === 0 && this.state.data.length !== 0) {
+            const top = window.sessionStorage.getItem(this.props.detailPath);
+            if (top) {
+                document.querySelector('.am-drawer-content').scrollTop = parseInt(top)
+            }
+        }
+    }
+
     render () {
         return (
             <div className="people-list">
@@ -61,6 +70,7 @@ export default class PeopleList extends React.Component {
                                     <div className="item-center-script"><span>管辖区域：</span><a>{item.area}</a></div>
                                 </div>
                                 <div className="team-item-more team-center" onClick={() => {
+                                    window.sessionStorage.setItem(this.props.detailPath, document.querySelector('.am-drawer-content').scrollTop);
                                     hashHistory.push(this.props.detailPath + '/' + item.id)
                                 }}>
                                     <span>查看更多…</span>
