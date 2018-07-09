@@ -39,11 +39,11 @@ export default class PeopleDetail extends React.Component {
                      <div className="team-item-center team-center">
                          {
                              this.props.watch && (
-                                 <div className="item-center-script"><p>守护部位：{this.state.watch}</p></div>
+                                 <div className="item-center-script"><p>守护部位：{this.state.data.watch}</p></div>
                              )
                          }
-                         <div className="item-center-contain"><p>性别：{this.state.sex}</p></div>
-                         <div className="item-center-contain"><p>年龄：{this.state.age}</p></div>
+                         <div className="item-center-contain"><p>性别：{this.state.data.sex === 1?'男':'女'}</p></div>
+                         <div className="item-center-contain"><p>年龄：{this.state.data.age}</p></div>
                          {
                              this.props.period && (
                                  <div className="item-center-contain"><p>管辖时间：{this.state.data.period}</p></div>

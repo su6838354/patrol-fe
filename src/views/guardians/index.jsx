@@ -11,6 +11,7 @@ export default class Guardians extends React.Component {
             role: '负责人',
             type: 'guard',
             detailPath: 'guardians-detail',
+            path: true,
         }
     }
     render () {
