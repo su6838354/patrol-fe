@@ -21,6 +21,8 @@ export default class PeopleList extends React.Component {
     componentDidMount () {
         this.context.changeTitle(this.props.title);
         request.post('patrol/staff/list', {
+            isDelete: 0,
+            status: 'online',
             type: this.props.type,
             limit: this.state.limit,
             offset: this.state.offset,
