@@ -55,6 +55,7 @@ export default class Form extends React.Component {
             mobile,
             content,
             image_url: this.state.image_url,
+            status: 'new'
         };
         if (this.props.type === 'yuyue') {
             params.police_id = sessionStorage.getItem('police_id');
