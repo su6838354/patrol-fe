@@ -24,6 +24,8 @@ export default class orderList extends React.Component {
     componentDidMount() {
         document.title = '预约办事'
         request.post('patrol/staff/list', {
+            isDelete: 0,
+            status: 'online',
             type: this.state.type,
             limit: this.state.limit,
             offset: this.state.offset,
