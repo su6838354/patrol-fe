@@ -54,6 +54,9 @@ export default class Chat extends React.Component {
 
     sendMsg = (m) => {
         const msg = m || this.state.msg;
+        if (!msg) {
+            return
+        }
         // if there is a non-empty message and a socket connection
         this.socket.emit('send message from user', {
             msg,
