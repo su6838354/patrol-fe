@@ -75,7 +75,7 @@ export default class orderList extends React.Component {
                                     </div>
                                     <div className="team-item-center team-center">
                                         <div className="item-center-script"><p>黄警官简介：</p></div>
-                                        <div className="item-center-script"><p>{item.detail}</p></div>
+                                        <div className="item-center-script" style={{ maxHeight: '.28rem', textOverflow: 'ellipsis'}}><p>{item.detail}</p></div>
                                     </div>
                                     <div className="team-item-more team-center" onClick={() => {
                                         window.sessionStorage.setItem(this.state.detailPath, document.querySelector('.am-drawer-content').scrollTop);
