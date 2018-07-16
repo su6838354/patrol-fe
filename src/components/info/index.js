@@ -30,12 +30,14 @@ export default (props) => {
         <div className="title">提交信息</div>
             <div>流水号：{session_id}</div>
             <div>姓名：{name}</div>
-        <div>手机：{mobile}</div>
+            <div>手机：{mobile}</div>
             {
                 sexShow && <div>性别：{sex === 1 ? '男' : '女'}</div>
             }
-        <div>反馈内容：{content}</div>
-        <div style={{display: 'flex'}}>照片：<img className={'image'} src={image_url}></img></div>
+            <div>反馈内容：<br/>{content}</div>
+            {
+                image_url && <div style={{display: 'flex'}}>照片：<img className={'image'} src={image_url}></img></div>
+            }
         </div>
     )
 }
