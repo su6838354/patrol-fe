@@ -45,14 +45,10 @@ export default class orderList extends React.Component {
                     }}>预约</div>
                 </div>
                 <div className="police-content">
-                    <span>黄警官介绍:</span>
+                    <span>警官介绍:</span>
                     <p>
-                        {this.state.data.detail}
+                        {this.state.data.detail?this.state.data.detail.split('\n').map((d,i)=><div key={i}>{d}</div>) : ''}
                     </p>
-
-
-
-
                 </div>
             </div>
 
