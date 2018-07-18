@@ -39,7 +39,7 @@ export default class PeopleDetail extends React.Component {
                      <div className="team-item-center team-center">
                          {
                              this.props.watch && (
-                                 <div className="item-center-script" style={{lineHeight: '.4rem'}}><p>守护部位：{this.state.data.watch}</p></div>
+                                 <div className="item-center-contain" style={{lineHeight: '.4rem'}}><p>守护部位：{this.state.data.watch}</p></div>
                              )
                          }
                          <div className="item-center-contain"><p>性别：{this.state.data.sex === 1?'男':'女'}</p></div>

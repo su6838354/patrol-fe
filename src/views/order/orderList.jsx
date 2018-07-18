@@ -74,7 +74,7 @@ export default class orderList extends React.Component {
                                         }}>预 约</div>
                                     </div>
                                     <div className="team-item-center team-center">
-                                        <div className="item-center-script"><p>黄警官简介：</p></div>
+                                        <div className="item-center-script"><p>警官简介：</p></div>
                                         <div className="item-center-script" style={{ maxHeight: '.28rem', textOverflow: 'ellipsis'}}><p>{item.detail}</p></div>
                                     </div>
                                     <div className="team-item-more team-center" onClick={() => {
