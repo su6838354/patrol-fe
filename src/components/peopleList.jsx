@@ -65,7 +65,7 @@ export default class PeopleList extends React.Component {
                                 <div className="team-item-center team-center">
                                     {
                                         this.props.watch && (
-                                            <div className="item-center-script"><span>守护部位：</span><a>{this.state.data.watch}</a></div>
+                                            <div className="item-center-script"><span>守护部位：</span><a>{item.watch}</a></div>
                                         )
                                     }
                                     <div className="item-center-script"><span>性别：</span><a>{item.sex === 1? '男':'女'}</a></div>
