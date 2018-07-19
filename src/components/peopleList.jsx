@@ -33,11 +33,11 @@ export default class PeopleList extends React.Component {
                 })
             }
         }).catch((err) => {
-            // Toast.fail('请求失败');
-            const data={"code":0,"data":[{"id":65,"name":"溯源","type":"help","avatar":"http://sy-image-upyun.test.upcdn.net//sample-upload-ic-tongguo@3x.png","sex":1,"age":1,"watch":"","area":"22","period":"","good":"222222","path":"","case":"","detail":"","create_time":1531066241,"info_count":0},{"id":64,"name":"sr","type":"help","avatar":"","sex":1,"age":1,"watch":"","area":"","period":"","good":"","path":"","case":"","detail":"","create_time":1531064952,"info_count":0},{"id":63,"name":"苏远","type":"help","avatar":"","sex":1,"age":12,"watch":"","area":"s","period":"","good":"sssssss","path":"","case":"","detail":"","create_time":1531064924,"info_count":0},{"id":61,"name":"qwqwe","type":"help","avatar":"","sex":1,"age":0,"watch":"","area":"","period":"","good":"","path":"","case":"","detail":"","create_time":1531034510,"info_count":0},{"id":54,"name":"232333333","type":"help","avatar":"","sex":0,"age":213232,"watch":"2323","area":"121","period":"2323","good":"232","path":"213213","case":"321323","detail":"213213","create_time":1531029810,"info_count":0},{"id":11,"name":"sy","type":"help","avatar":"","sex":1,"age":26,"watch":null,"area":"11ssds","period":"周一","good":"优秀2323","path":"商场","case":"打架","detail":"哈哈哈哈哈","create_time":1530704503,"info_count":0}],"total":6,"message":"success"}
-            this.setState({
-                data: data.data
-            })
+            Toast.fail('请求失败');
+            // const data={"code":0,"data":[{"id":65,"name":"溯源","type":"help","avatar":"http://sy-image-upyun.test.upcdn.net//sample-upload-ic-tongguo@3x.png","sex":1,"age":1,"watch":"","area":"22","period":"","good":"222222","path":"","case":"","detail":"","create_time":1531066241,"info_count":0},{"id":64,"name":"sr","type":"help","avatar":"","sex":1,"age":1,"watch":"","area":"","period":"","good":"","path":"","case":"","detail":"","create_time":1531064952,"info_count":0},{"id":63,"name":"苏远","type":"help","avatar":"","sex":1,"age":12,"watch":"","area":"s","period":"","good":"sssssss","path":"","case":"","detail":"","create_time":1531064924,"info_count":0},{"id":61,"name":"qwqwe","type":"help","avatar":"","sex":1,"age":0,"watch":"","area":"","period":"","good":"","path":"","case":"","detail":"","create_time":1531034510,"info_count":0},{"id":54,"name":"232333333","type":"help","avatar":"","sex":0,"age":213232,"watch":"2323","area":"121","period":"2323","good":"232","path":"213213","case":"321323","detail":"213213","create_time":1531029810,"info_count":0},{"id":11,"name":"sy","type":"help","avatar":"","sex":1,"age":26,"watch":null,"area":"11ssds","period":"周一","good":"优秀2323","path":"商场","case":"打架","detail":"哈哈哈哈哈","create_time":1530704503,"info_count":0}],"total":6,"message":"success"}
+            // this.setState({
+            //     data: data.data
+            // })
         });
     }
 

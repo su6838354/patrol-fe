@@ -108,7 +108,6 @@ export default class Form extends React.Component {
         if (this.state.success.code === 0) {
             return this.renderSuccess()
         }
-
         return (
             <form className="form" ref={form => this.form = form}>
                 <div className="banner icon" style={{backgroundImage:`url(${this.props.imageUrl})`}}>
@@ -127,8 +126,8 @@ export default class Form extends React.Component {
                     </div>
 
                     <div className="login-item">
-                        <div className="item-label">反馈内容描述</div>
-                        <textarea name="content"  rows="5" />
+                        <div className="item-label">{window.location.hash==='#/appointment'?'预约事件描述':'反馈内容描述'}</div>
+                        <textarea name="content" rows="5" />
                     </div>
                     <div className="login-item">
                         <div className={'op'}>
