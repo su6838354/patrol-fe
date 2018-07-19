@@ -20,8 +20,7 @@ export default class Chat extends React.Component {
             msg: '',
             ip: guid(),
             externalIp: '0.0.0.0',
-            msgs: [
-            ],
+            msgs: [],
             status: '',
             phone: ''
         };
@@ -69,6 +68,8 @@ export default class Chat extends React.Component {
                 ...this.state.msgs,
                 {from: 'me', msg: msg, username: this.state.phone},
             ]
+        }, () => {
+            localStorage.setItem(this.state.phone, JSON.stringify(this.state.msgs));
         })
     }
 
@@ -102,9 +103,23 @@ export default class Chat extends React.Component {
                                         ...this.state.msgs,
                                         { from: 'admin', msg: data.msg},
                                     ]
+                                }, () => {
+                                    localStorage.setItem(this.state.phone, JSON.stringify(this.state.msgs));
                                 })
                             });
                             this.socket.open();
+                            let msgs = []
+                            try {
+                                const s = localStorage.getItem(this.state.phone);
+                                if (s) {
+                                    msgs = JSON.parse(s);
+                                    this.setState({
+                                        msgs
+                                    });
+                                }
+                            } catch (ex) {
+                                console.error(ex)
+                            }
                         } else {
                             Toast.info('手机号码不正确', 0.5);
                         }
