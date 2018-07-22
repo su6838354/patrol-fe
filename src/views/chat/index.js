@@ -24,6 +24,10 @@ export default class Chat extends React.Component {
             status: '',
             phone: ''
         };
+        this.ReceiveAudio = new Audio();
+        this.ReceiveAudio.src = "http://ypy.weichongming.com/sample-upload-8855.mp3";
+        this.SendAudio = new Audio();
+        this.SendAudio.src = "http://ypy.weichongming.com/sample-upload-7820.mp3";
     }
 
     componentDidMount() {
@@ -57,6 +61,7 @@ export default class Chat extends React.Component {
             return
         }
         // if there is a non-empty message and a socket connection
+        this.playSend();
         this.socket.emit('send message from user', {
             msg,
             from: 'me',
@@ -71,6 +76,14 @@ export default class Chat extends React.Component {
         }, () => {
             localStorage.setItem(this.state.phone, JSON.stringify(this.state.msgs));
         })
+    }
+
+    playSend () {
+        this.SendAudio.play();
+    }
+
+    playReceive () {
+        this.ReceiveAudio.play();
     }
 
     render() {
@@ -98,6 +111,7 @@ export default class Chat extends React.Component {
 
                             this.socket = this.manager.socket('/');
                             this.socket.on('send message from admin to user', (data) => {
+                                this.playReceive();
                                 this.setState({
                                     msgs: [
                                         ...this.state.msgs,
