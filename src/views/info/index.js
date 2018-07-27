@@ -13,7 +13,8 @@ export default class Info extends React.PureComponent {
         super(props);
         this.state = {
             search: {
-                mobile: '13636672480'
+                mobile: '',
+                type: undefined,
             },
             data: [],
             more: more
@@ -26,39 +27,50 @@ export default class Info extends React.PureComponent {
 
     queryData = () => {
         request.post('patrol/info/list', {
-            mobile: this.state.mobile,
+            mobile: this.state.search.mobile,
+            type: this.state.search.type,
+            limit: 10000,
         }).then(({ data }) => {
             if (data.code === 0) {
                 this.setState({
                     data: data.data
-                })
-                console.log(this.state.data)
+                });
+                console.log(this.state.data);
             }
         }).catch((err) => {
+            console.error(err);
             Toast.fail('请求失败');
         });
     }
 
-    renderItem = () => {
+    renderItem = (item, index) => {
         return (
-            <div className='info-item'>
+            <div className='info-item' key={index}>
                 <div className='info-item-text'>
-                    姓名：<span>马云</span>
-                </div>
-                <div className='info-item-text'>
-                    手机：<span>13636672455</span>
+                    姓名：<span>{item.name}</span>
                 </div>
                 <div className='info-item-text'>
-                    性别：<span>男</span>
+                    手机：<span>{item.mobile}</span>
                 </div>
                 <div className='info-item-text'>
-                    预约对象：<span>王警官</span>
+                    性别：<span>{item.sex ? '男':'女'}</span>
                 </div>
-                 <p><a>内容描述：</a>我是撒哈撒阿达的硕大的,我是撒哈撒阿达的硕大的，我是撒哈撒阿达的硕大的我是撒哈撒阿达的硕大的我是撒哈撒阿达的硕大的我是撒哈撒阿达的硕大的</p>
-                <div className='info-item-img'>
-                    <span>图片:</span>
-                    <img src={this.state.more} />
-                </div>
+                {
+                    item.police && (
+                        <div className='info-item-text'>
+                            预约对象：<span>{item.police.name}</span>
+                        </div>
+                    )
+                }
+                 <p><a>内容描述：</a>{item.content}</p>
+                {
+                    item.image_url && (
+                        <div className='info-item-img'>
+                            <span>图片:</span>
+                            <img src={item.image_url + '!/fw/400'} />
+                        </div>
+                    )
+                }
             </div>
         );
     }
@@ -69,20 +81,32 @@ export default class Info extends React.PureComponent {
                 <div className='title'>反馈预约查询</div>
                 <div className='info-mobile'>
                     <span>手机号:</span>
-                    <input className='mobile-input'/>
+                    <input value={this.state.search.mobile} onChange={(e) => {
+                        this.setState({
+                            search: {...this.state.search, mobile: e.target.value}
+                        })
+                    }} className='mobile-input'/>
                 </div>
                 <div className='info-mobile'>
                     <span>类型：</span>
-                    <select className='mobile-input'>
-                        <option>请选择</option>
-                        <option>预约办事</option>
-                        <option>政务反馈</option>
-                        <option>民情反馈</option>
+                    <select className='mobile-input' onChange={(e) => {
+                        this.setState({
+                            search: {...this.state.search, type: e.target.value || undefined}
+                        })
+                    }}>
+                        <option value=''>全部</option>
+                        <option value='yuyue'>预约办事</option>
+                        <option value='people'>警情报送</option>
+                        <option value='govern'>工作情况反馈</option>
                     </select>
                 </div>
                 <Button type="primary" onClick={this.queryData}>查询</Button>
                 <div>
-                    {this.renderItem()}
+                    {
+                        this.state.data.map((item, index) => {
+                            return this.renderItem(item, index);
+                        })
+                    }
                 </div>
             </div>
         );
