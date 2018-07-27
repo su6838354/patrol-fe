@@ -8,7 +8,7 @@ export default class helperDetail extends React.Component {
         this.state = {
             department: false,
             id: '1',
-            title: '重点部位守护',
+            title: '帮教小组成员',
             role: '帮教人员',
             area: true,
             good: true

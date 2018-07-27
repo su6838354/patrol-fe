@@ -7,7 +7,7 @@ export default class Guardians extends React.Component {
         this.state = {
             watch: true,
             id: '1',
-            title: '重点部位守护',
+            title: '重点守护部位人员',
             role: '负责人',
             type: 'guard',
             detailPath: 'guardians-detail',

@@ -10,7 +10,7 @@ export default class PeopleFeedBack extends React.Component {
             sex: false,
             id: '2',
             image: bannerImage,
-            title: '民情反馈',
+            title: '警情报送',
             type: 'people',
         }
     }

@@ -14,7 +14,7 @@ export default class GovernFeedBack extends React.Component {
             sex: true,
             id: '1',
             image: bannerImage,
-            title: '政务反馈',
+            title: '工作情况反馈',
         }
     }
     render () {

@@ -7,7 +7,7 @@ export default class Helper extends React.Component {
         this.state = {
             department: false,
             id: '1',
-            title: '重点人员管控',
+            title: '帮教小组成员',
             role: '帮教人员',
             type: 'help',
             detailPath: 'helper-detail'

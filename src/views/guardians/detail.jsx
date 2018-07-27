@@ -8,7 +8,7 @@ export default class leading extends React.Component {
         this.state = {
             department: true,
             id: '1',
-            title: '重点部位守护',
+            title: '重点守护部位人员',
             role: '负责人',
             watch: true,
             period: true,
