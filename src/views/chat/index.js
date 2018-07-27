@@ -79,11 +79,12 @@ export default class Chat extends React.Component {
     }
 
     playSend () {
-        this.SendAudio.play();
+        // this.SendAudio.play();
     }
 
     playReceive () {
-        this.ReceiveAudio.play();
+        // this.ReceiveAudio.load();
+        // this.ReceiveAudio.play();
     }
 
     render() {

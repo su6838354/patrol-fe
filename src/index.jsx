@@ -102,6 +102,12 @@ const Chat = Loadable({
 });
 
 
+const Info = Loadable({
+    loader: () => import('./views/info'),
+    loading: Loading,
+});
+
+
 
 ReactDOM.render(
   <Router history={hashHistory}>
@@ -119,6 +125,7 @@ ReactDOM.render(
           <Route path="order-list" component={OrderList} />
           <Route path="order-detail/:id" component={OrderDetail} />
           <Route path="chat" component={Chat} />
+          <Route path="info" component={Info} />
       </Route>
   </Router>
 , document.getElementById('example'));
