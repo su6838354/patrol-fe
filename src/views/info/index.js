@@ -6,6 +6,7 @@ import React from 'react';
 import request from '../../tools/request';
 import { Button, Toast } from 'antd-mobile';
 import './index.less';
+import more from '../../assets/images/sum.png'
 
 export default class Info extends React.PureComponent {
     constructor(props) {
@@ -14,7 +15,8 @@ export default class Info extends React.PureComponent {
             search: {
                 mobile: '13636672480'
             },
-            data: []
+            data: [],
+            more: more
         }
     }
 
@@ -30,6 +32,7 @@ export default class Info extends React.PureComponent {
                 this.setState({
                     data: data.data
                 })
+                console.log(this.state.data)
             }
         }).catch((err) => {
             Toast.fail('请求失败');
@@ -52,9 +55,9 @@ export default class Info extends React.PureComponent {
                     预约对象：<span>王警官</span>
                 </div>
                  <p><a>内容描述：</a>我是撒哈撒阿达的硕大的,我是撒哈撒阿达的硕大的，我是撒哈撒阿达的硕大的我是撒哈撒阿达的硕大的我是撒哈撒阿达的硕大的我是撒哈撒阿达的硕大的</p>
-                <div className='info-item-text'>
-                    图片:
-                    <img />
+                <div className='info-item-img'>
+                    <span>图片:</span>
+                    <img src={this.state.more} />
                 </div>
             </div>
         );
