@@ -10,7 +10,8 @@ export default class Helper extends React.Component {
             title: '帮教小组成员',
             role: '帮教人员',
             type: 'help',
-            detailPath: 'helper-detail'
+            detailPath: 'helper-detail',
+            area: true,
         }
     }
     render () {

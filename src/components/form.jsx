@@ -55,6 +55,7 @@ export default class Form extends React.Component {
             mobile,
             content,
             image_url: this.state.image_url,
+            status: 'new'
         };
         if (this.props.type === 'yuyue') {
             params.police_id = sessionStorage.getItem('police_id');
@@ -107,27 +108,26 @@ export default class Form extends React.Component {
         if (this.state.success.code === 0) {
             return this.renderSuccess()
         }
-
         return (
             <form className="form" ref={form => this.form = form}>
-                <div className="banner">
-                   <img src={this.props.imageUrl}/>
+                <div className="banner icon" style={{backgroundImage:`url(${this.props.imageUrl})`}}>
+                   {/* <img src={this.props.imageUrl}/> */}
                 </div>
                 <div className="login-box center">
                     <div className="login-item">
                         <div className="item-label">姓名</div>
-                        <input name="name" ref={(name) => this.nameRef = name} />
+                        <input name="name" ref={(name) => this.nameRef = name} maxLength={15} />
                     </div>
                     <div>{this.renderList()}</div>
 
                     <div className="login-item">
                         <div className="item-label">手机</div>
-                        <input type={'tel'} name="mobile" />
+                        <input type={'tel'} name="mobile" maxLength={11} />
                     </div>
 
                     <div className="login-item">
-                        <div className="item-label">反馈内容描述</div>
-                        <textarea name="content"  rows="5" />
+                        <div className="item-label">{window.location.hash==='#/appointment'?'预约事件描述':'反馈内容描述'}</div>
+                        <textarea name="content" rows="5" />
                     </div>
                     <div className="login-item">
                         <div className={'op'}>
@@ -155,14 +155,12 @@ export default class Form extends React.Component {
                                     <span>上传文件（需小于10M）</span>
                                 </div>
                             </div>
-
                             {
                                 (this.state.image_url) && <img className="preview" src={this.state.image_url} />
                             }
-
                         </div>
 
-                        <button type="button" className="submit" onClick={this.uploadHandler}>提交</button>
+                        <button type="button" className="submit" onClick={this.uploadHandler}>提 交</button>
                     </div>
                 </div>
 

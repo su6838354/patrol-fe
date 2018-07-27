@@ -51,9 +51,13 @@ module.exports = {
         test: /\.(jsx|js)$/, exclude: /node_modules/, loader: 'babel-loader',
         options: {
           plugins: [
-            'external-helpers', // why not work?
+              'external-helpers', // why not work?
             ["transform-runtime", { polyfill: false }],
-            ["import", [{ "style": "css", "libraryName": "antd-mobile" }]]
+            ["import", [
+                { "style": "css", "libraryName": "antd-mobile" }
+                ]
+            ],
+              "syntax-dynamic-import"
           ],
           presets: ['es2015', 'stage-0', 'react']
           // presets: [['es2015', { modules: false }], 'stage-0', 'react'] // tree-shaking
