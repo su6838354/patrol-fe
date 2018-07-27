@@ -38,25 +38,22 @@ export default class Info extends React.PureComponent {
 
     renderItem = () => {
         return (
-            <div>
-                <div >
-                    <span>姓名</span><span>马云</span>
+            <div className='info-item'>
+                <div className='info-item-text'>
+                    姓名：<span>马云</span>
                 </div>
-                <div>
-                    <span>手机</span><span>13636672455</span>
+                <div className='info-item-text'>
+                    手机：<span>13636672455</span>
                 </div>
-                <div>
-                    <span>性别</span><span>男</span>
+                <div className='info-item-text'>
+                    性别：<span>男</span>
                 </div>
-                <div>
-                    <span>预约对象</span><span>王警官</span>
+                <div className='info-item-text'>
+                    预约对象：<span>王警官</span>
                 </div>
-
-                <div>
-                    <span>内容描述</span><span>我是撒哈撒阿达的硕大的</span>
-                </div>
-                <div>
-                    <span>图片</span>
+                 <p><a>内容描述：</a>我是撒哈撒阿达的硕大的,我是撒哈撒阿达的硕大的，我是撒哈撒阿达的硕大的我是撒哈撒阿达的硕大的我是撒哈撒阿达的硕大的我是撒哈撒阿达的硕大的</p>
+                <div className='info-item-text'>
+                    图片:
                     <img />
                 </div>
             </div>

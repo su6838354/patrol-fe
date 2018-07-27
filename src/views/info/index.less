@@ -1,6 +1,6 @@
 .info {
   font-size: .18rem;
-
+  padding: 0 .22rem;
   .title {
     font-size: .24rem;
     text-align: center;
@@ -8,7 +8,7 @@
   }
 
   .info-mobile {
-    padding-left: .2rem;
+   // padding-left: .2rem;
     width: 3rem;
     margin: 0 auto;
     margin-bottom: .2rem;
@@ -19,7 +19,7 @@
       display: inline-block;
     }
 
-    .mobile-input{
+    .mobile-input {
       height: .3rem;
       padding: .02rem;
       margin-left: .1rem;
@@ -27,5 +27,28 @@
       border-radius: .04rem;
     }
   }
-
+  .info-item {
+    height: auto;
+    border: 1px solid #aeaeae;
+    border-radius: 5px;
+    margin-top: .14rem;
+    overflow: hidden;
+    padding: .13rem .2rem 0 .2rem;
+    .info-item-text {
+        height:.22rem;
+        font-size:.14rem;
+      span{
+        color:#676666;
+      }
+    }
+    p{
+      font-size:.14rem;
+      margin-bottom:.05rem;
+      line-height:.18rem;
+      color:#676666;
+      a {
+        color:#000;
+      }
+    }
+  }
 }
