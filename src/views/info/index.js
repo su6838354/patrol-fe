@@ -4,6 +4,7 @@
 
 import React from 'react';
 import request from '../../tools/request';
+import { isPoneAvailable } from '../../tools/util';
 import { Button, Toast } from 'antd-mobile';
 import './index.less';
 import more from '../../assets/images/sum.png'
@@ -26,6 +27,10 @@ export default class Info extends React.PureComponent {
     }
 
     queryData = () => {
+        if (!isPoneAvailable(this.state.search.mobile)) {
+            Toast.info('手机号码不正确', 1);
+            return;
+        }
         request.post('patrol/info/list', {
             mobile: this.state.search.mobile,
             type: this.state.search.type,
@@ -44,6 +49,14 @@ export default class Info extends React.PureComponent {
     }
 
     renderItem = (item, index) => {
+        let statusTxt = '待处理';
+        if (item.status === 'accept') {
+            statusTxt = '已接受'
+        }
+        if (item.status === 'refuse') {
+            statusTxt = '已拒绝'
+        }
+
         return (
             <div className='info-item' key={index}>
                 <div className='info-item-text'>
@@ -59,6 +72,13 @@ export default class Info extends React.PureComponent {
                     item.police && (
                         <div className='info-item-text'>
                             预约对象：<span>{item.police.name}</span>
+                        </div>
+                    )
+                }
+                {
+                    item.status && (
+                        <div className='info-item-text'>
+                            状态：<span>{statusTxt}</span>
                         </div>
                     )
                 }
