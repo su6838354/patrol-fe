@@ -56,6 +56,11 @@ export default class PeopleList extends React.Component {
             <div className="people-list">
                 <div className="team-box center">
                     {
+                        this.state.data.length === 0 && (
+                            <div className='no-data'>暂无数据哦！</div>
+                        )
+                    }
+                    {
                         this.state.data.map(item => {
                             return (
                             <div key={item.id} className="team-item ">

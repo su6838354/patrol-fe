@@ -131,33 +131,49 @@ export default class Form extends React.Component {
                     </div>
                     <div className="login-item">
                         <div className={'op'}>
-                            <div>
-                                <div className="item-label">上传照片</div>
-                                <div onClick={(e) => {
-                                    this.file.click()
-                                }}>
-                                    <div className="upload"/>
-                                    <input id="add-file" onChange={(e) => {
-                                        const file = e.target.files[0];
-                                        Toast.info('图片上传中...', 100000);
-                                        upload(file, ({code, data}) => {
-                                            if (code === 0)  {
-                                                this.setState({
-                                                    image_url: data
-                                                });
-                                                Toast.success('图片上传成功', 1);
-                                            } else {
-                                                Toast.fail('图片上传失败')
-                                            }
-                                        })
-                                    }} ref={(file) => this.file = file } className="upload-input" type="file" />
-
-                                    <span>上传文件（需小于10M）</span>
-                                </div>
-                            </div>
                             {
-                                (this.state.image_url) && <img className="preview" src={this.state.image_url} />
+                                (!this.state.image_url) && (
+                                    <div>
+                                        <div className="item-label">上传照片</div>
+                                        <div onClick={(e) => {
+                                            this.file.click()
+                                        }}>
+                                            <div className="upload"/>
+                                            <input id="add-file" onChange={(e) => {
+                                                const file = e.target.files[0];
+                                                Toast.info('图片上传中...', 100000);
+                                                upload(file, ({code, data}) => {
+                                                    if (code === 0)  {
+                                                        this.setState({
+                                                            image_url: data
+                                                        });
+                                                        Toast.success('图片上传成功', 1);
+                                                    } else {
+                                                        Toast.fail('图片上传失败')
+                                                    }
+                                                })
+                                            }} ref={(file) => this.file = file } className="upload-input" type="file" />
+
+                                            <span>上传文件（需小于10M）</span>
+                                        </div>
+                                    </div>
+                                )
                             }
+
+
+                            {
+                                (this.state.image_url) && (
+                                    <div className='image-container'>
+                                        <img className="preview" src={this.state.image_url} />
+                                        <div className='remove-image' onClick={() => {
+                                            this.setState({
+                                                image_url: ''
+                                            })
+                                        }}/>
+                                    </div>
+                                )
+                            }
+
                         </div>
 
                         <button type="button" className="submit" onClick={this.uploadHandler}>提 交</button>
