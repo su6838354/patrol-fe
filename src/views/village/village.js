@@ -44,7 +44,7 @@ class Village extends React.Component {
                         hashHistory.push('helper/' + item)
                     }
                     if (type === 'mediation') {
-                        hashHistory.push('mediation/' + item)
+                        hashHistory.push('mediation-team/' + item)
                     }
                 }}>
                     {item}
