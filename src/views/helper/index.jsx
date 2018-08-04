@@ -23,6 +23,7 @@ export default class Helper extends React.Component {
                     title = {this.state.title}
                     role = {this.state.role}
                     {...this.state}
+                    {...this.props}
                 />
             </div>
         )

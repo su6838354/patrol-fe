@@ -26,6 +26,7 @@ export default class PeopleList extends React.Component {
             type: this.props.type,
             limit: this.state.limit,
             offset: this.state.offset,
+            village: this.props.params.village,
         }).then(({ data }) => {
             if (data.code === 0) {
                 this.setState({

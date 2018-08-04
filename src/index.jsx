@@ -107,6 +107,16 @@ const Info = Loadable({
     loading: Loading,
 });
 
+const HelpVillage = Loadable({
+    loader: () => import('./views/village/help-village'),
+    loading: Loading,
+});
+
+const MediationVillage = Loadable({
+    loader: () => import('./views/village/mediation-village'),
+    loading: Loading,
+});
+
 
 
 ReactDOM.render(
@@ -116,9 +126,11 @@ ReactDOM.render(
           <Route path="people-feed-back" component={FeedBack} />
           <Route path="govern-feed-back" component={GovernBack} />
           <Route path="appointment" component={Appointment} />
-          <Route path="mediation-team" component={MediationTeam} />
+          <Route path="mediation-team/:village" component={MediationTeam} />
+          <Route path="mediation-team" component={MediationVillage} />
           <Route path="mediation-detail/:id" component={MediationDetail} />
-          <Route path="helper" component={Helper} />
+          <Route path="helper" component={HelpVillage} />
+          <Route path="helper/:village" component={Helper} />
           <Route path="helper-detail/:id" component={HelperDetail} />
           <Route path="guardians" component={Guardians} />
           <Route path="guardians-detail/:id" component={GuardiansDetail} />

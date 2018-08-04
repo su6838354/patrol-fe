@@ -28,6 +28,7 @@ export default class MediationTeam extends React.Component {
                     title = {this.state.title}
                     role = {this.state.role}
                     {...this.state}
+                    {...this.props}
                 />
             </div>
         )
