@@ -66,6 +66,7 @@ export default class Chat extends React.Component {
             msg,
             from: 'me',
             username: this.state.phone,
+	    time: (new Date()).toLocaleString()
         });
         this.setState({
             msg: '',
