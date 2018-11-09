@@ -66,13 +66,13 @@ export default class Chat extends React.Component {
             msg,
             from: 'me',
             username: this.state.phone,
-	    time: (new Date()).toLocaleString()
+	        time: (new Date()).toLocaleString()
         });
         this.setState({
             msg: '',
             msgs: [
                 ...this.state.msgs,
-                {from: 'me', msg: msg, username: this.state.phone},
+                {from: 'me', msg: msg, username: this.state.phone, time: (new Date()).toLocaleString()},
             ]
         }, () => {
             localStorage.setItem(this.state.phone, JSON.stringify(this.state.msgs));
@@ -117,7 +117,7 @@ export default class Chat extends React.Component {
                                 this.setState({
                                     msgs: [
                                         ...this.state.msgs,
-                                        { from: 'admin', msg: data.msg},
+                                        { from: 'admin', msg: data.msg, time: data.time},
                                     ]
                                 }, () => {
                                     localStorage.setItem(this.state.phone, JSON.stringify(this.state.msgs));
@@ -155,7 +155,10 @@ export default class Chat extends React.Component {
                     <WingBlank size="sm"><PlaceHolder phone={this.state.phone} /></WingBlank>
                     {
                         this.state.msgs.map(item => {
-                            return <div className={`msg ${item.from}`}><div>{item.msg}</div></div>
+                            return <div className={`msg ${item.from}`}>
+                                <div>{item.msg}</div>
+                                <span>{item.time}</span>
+                                </div>
                         })
                     }
                 </div>
